@@ -19,8 +19,7 @@ Thumbs.db
 # Node.js
 **/node_modules/
 
-# ...except dist folder in frontend
-!frontend/dist/
+
 
 # Environment variables
 **/.env
