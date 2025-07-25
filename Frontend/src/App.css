@@ -1,0 +1,28 @@
+.App {
+  min-height: 100vh;
+  background-color: white;
+}
+
+/* Additional component-specific styles */
+.navbar-custom {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.search-input {
+  border-radius: 8px 0 0 8px;
+}
+
+.search-button {
+  border-radius: 0 8px 8px 0;
+}
+
+.departments-btn {
+  background-color: #14b8a6;
+  border-color: #14b8a6;
+}
+
+.departments-btn:hover {
+  background-color: #0f9488;
+  border-color: #0f9488;
+}

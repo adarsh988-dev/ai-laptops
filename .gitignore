@@ -1,0 +1,34 @@
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Node.js
+**/node_modules/
+
+# ...except dist folder in frontend
+!frontend/dist/
+
+# Environment variables
+**/.env
+**/.env.*  # like .env.local, .env.development
+
+# Optional cache/temp folders
+**/.next/
+**/.cache/
+**/coverage/
+**/tmp/
+**/temp/
