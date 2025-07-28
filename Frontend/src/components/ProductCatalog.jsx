@@ -7,11 +7,11 @@ import {
   Button,
   Dropdown,
   Spinner,
+  Modal,
 } from "react-bootstrap";
 import { FaStar, FaTh, FaList, FaChevronDown } from "react-icons/fa";
 
-// Replace this with your actual base URL
-const API_BASE_URL = "https://ailaptopwala.zecdata.com";
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const ProductCatalog = () => {
   const [laptops, setLaptops] = useState([]);
@@ -20,11 +20,7 @@ const ProductCatalog = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [hoveredProduct, setHoveredProduct] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  // Optional: Alert Function (replace or modify as needed)
-  const showAlertMessage = (msg, type) => {
-    alert(`${type.toUpperCase()}: ${msg}`);
-  };
+  const [showErrorModal, setShowErrorModal] = useState(false);
 
   const fetchAllLaptops = async () => {
     setLoading(true);
@@ -33,12 +29,13 @@ const ProductCatalog = () => {
       if (response.ok) {
         const data = await response.json();
         setLaptops(data.products);
+        setShowErrorModal(data.products.length === 0);
       } else {
         throw new Error("Failed to fetch laptops");
       }
     } catch (error) {
       console.error("Error fetching laptops:", error);
-      showAlertMessage("Failed to fetch laptops", "danger");
+      setShowErrorModal(true);
     } finally {
       setLoading(false);
     }
@@ -75,15 +72,14 @@ const ProductCatalog = () => {
     <section className="py-4">
       <Container>
         <Row>
-          <Col lg={12}>
-            <div className="d-flex justify-content-between align-items-center mb-4 p-3 bg-light rounded">
-              <div className="d-flex align-items-center">
+          <Col xs={12}>
+            <div className="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4 p-3 bg-light rounded">
+              <div className="d-flex gap-2">
                 <Button
                   variant={
                     viewMode === "grid" ? "primary" : "outline-secondary"
                   }
                   size="sm"
-                  className="me-2"
                   onClick={() => setViewMode("grid")}
                 >
                   <FaTh />
@@ -99,11 +95,7 @@ const ProductCatalog = () => {
                 </Button>
               </div>
               <Dropdown>
-                <Dropdown.Toggle
-                  variant="outline-secondary"
-                  size="sm"
-                  className="border-0"
-                >
+                <Dropdown.Toggle variant="outline-secondary" size="sm">
                   Sort By <FaChevronDown size={10} />
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -133,7 +125,9 @@ const ProductCatalog = () => {
                   {filteredProducts.map((product) => (
                     <Col
                       key={product.id}
+                      xs={12}
                       sm={6}
+                      md={4}
                       lg={viewMode === "grid" ? 3 : 12}
                     >
                       <Card
@@ -162,8 +156,8 @@ const ProductCatalog = () => {
                               variant="top"
                               src={
                                 hoveredProduct === product.id
-                                  ? product.hoverImage
-                                  : product.image
+                                  ? `/public/uploads/${product.hoverImage}`
+                                  : `/public/uploads/${product.image}`
                               }
                               style={{
                                 height: "100%",
@@ -234,6 +228,28 @@ const ProductCatalog = () => {
           </Col>
         </Row>
       </Container>
+
+      <Modal
+        show={showErrorModal}
+        onHide={() => setShowErrorModal(false)}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Oops! No Laptops Found</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          We couldn’t load any laptops at the moment. Please check your internet
+          connection or try again later.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowErrorModal(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={fetchAllLaptops}>
+            Retry
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </section>
   );
 };

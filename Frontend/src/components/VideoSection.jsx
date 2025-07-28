@@ -38,7 +38,7 @@ const VideoSection = () => {
   ];
 
   return (
-    <section className="py-4 bg-light">
+    <section className="py-5 bg-light">
       <Container>
         <Row className="g-4">
           {videos.map((video) => {
@@ -46,7 +46,7 @@ const VideoSection = () => {
             const isPlaying = playingVideoId === video.id;
 
             return (
-              <Col key={video.id} sm={6} lg={3}>
+              <Col key={video.id} xs={12} sm={6} md={4} lg={3}>
                 <div className="video-thumbnail position-relative">
                   {isPlaying ? (
                     <div className="ratio ratio-16x9">
@@ -67,7 +67,11 @@ const VideoSection = () => {
                         src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                         alt={video.title}
                         className="img-fluid w-100"
-                        style={{ height: "180px", objectFit: "cover" }}
+                        style={{
+                          height: "180px",
+                          objectFit: "cover",
+                          borderRadius: "8px",
+                        }}
                       />
                       <div
                         className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"

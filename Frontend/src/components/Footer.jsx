@@ -10,11 +10,11 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="footer-dark text-white">
+    <footer className="footer-dark text-white bg-dark">
       <Container className="py-5">
         <Row className="g-4">
           {/* Company Info */}
-          <Col lg={3} md={6}>
+          <Col xs={12} md={6} lg={3}>
             <div className="mb-3">
               <div className="d-flex align-items-center mb-3">
                 <div
@@ -35,20 +35,20 @@ const Footer = () => {
                   <p className="text-info mb-0">support@ailaptopwala.com</p>
                 </div>
               </div>
-              <div className="d-flex">
-                <a href="#" className="footer-link me-3">
+              <div className="d-flex flex-wrap">
+                <a href="#" className="footer-link me-3 mb-2">
                   <FaFacebook size={20} />
                 </a>
-                <a href="#" className="footer-link me-3">
+                <a href="#" className="footer-link me-3 mb-2">
                   <FaTwitter size={20} />
                 </a>
-                <a href="#" className="footer-link me-3">
+                <a href="#" className="footer-link me-3 mb-2">
                   <FaInstagram size={20} />
                 </a>
-                <a href="#" className="footer-link me-3">
+                <a href="#" className="footer-link me-3 mb-2">
                   <FaYoutube size={20} />
                 </a>
-                <a href="#" className="footer-link">
+                <a href="#" className="footer-link mb-2">
                   <FaTelegram size={20} />
                 </a>
               </div>
@@ -56,30 +56,30 @@ const Footer = () => {
           </Col>
 
           {/* Our Story */}
-          <Col lg={2} md={6}>
+          <Col xs={6} md={6} lg={2}>
             <h5 className="text-light mb-3">Our Story</h5>
             <ul className="list-unstyled">
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Company Profile
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Our Facility
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Commitment To Quality
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Contract Manufacturing
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Our Awards
                 </a>
@@ -88,30 +88,30 @@ const Footer = () => {
           </Col>
 
           {/* Categories */}
-          <Col lg={2} md={6}>
+          <Col xs={6} md={6} lg={2}>
             <h5 className="text-light mb-3">Categories</h5>
             <ul className="list-unstyled">
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Smartphone
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Gaming Laptop
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Smart Home
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Major Appliances
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Technologies
                 </a>
@@ -120,25 +120,25 @@ const Footer = () => {
           </Col>
 
           {/* Quick Link */}
-          <Col lg={2} md={6}>
+          <Col xs={6} md={6} lg={2}>
             <h5 className="text-light mb-3">Quick Link</h5>
             <ul className="list-unstyled">
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Blog
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Subscription
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Announcements
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   FAQ's
                 </a>
@@ -147,25 +147,25 @@ const Footer = () => {
           </Col>
 
           {/* Contact Us */}
-          <Col lg={3} md={6}>
+          <Col xs={6} md={6} lg={3}>
             <h5 className="text-light mb-3">Contact Us</h5>
             <ul className="list-unstyled">
-              <li className="mb-2">
+              <li>
                 <a href="#" className="text-teal text-decoration-none">
                   Become a Seller
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Terms & Condition
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Career with us
                 </a>
               </li>
-              <li className="mb-2">
+              <li>
                 <a href="#" className="footer-link">
                   Consumer enquiry
                 </a>
@@ -176,28 +176,28 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <hr className="border-secondary my-4" />
-        <Row className="align-items-center">
-          <Col md={6}>
+        <Row className="align-items-center text-center text-md-start">
+          <Col xs={12} md={6} className="mb-3 mb-md-0">
             <p className="text-muted small mb-0">
-              Copyright © 2025 Created by- It Place Technology.
+              © 2025 Created by - It Place Technology.
             </p>
           </Col>
-          <Col md={6} className="text-md-end">
-            <div className="d-flex align-items-center justify-content-md-end">
+          <Col xs={12} md={6}>
+            <div className="d-flex flex-wrap justify-content-center justify-content-md-end align-items-center">
               <span className="text-muted small me-3">
-                We Using Safe Payment For
+                We Use Safe Payment:
               </span>
-              <div className="d-flex">
-                <span className="bg-white text-dark px-2 py-1 rounded me-1 small fw-bold">
+              <div className="d-flex flex-wrap">
+                <span className="bg-white text-dark px-2 py-1 rounded me-2 mb-1 small fw-bold">
                   VISA
                 </span>
-                <span className="bg-white text-dark px-2 py-1 rounded me-1 small fw-bold">
+                <span className="bg-white text-dark px-2 py-1 rounded me-2 mb-1 small fw-bold">
                   UPI
                 </span>
-                <span className="bg-white text-dark px-2 py-1 rounded me-1 small fw-bold">
+                <span className="bg-white text-dark px-2 py-1 rounded me-2 mb-1 small fw-bold">
                   Skrill
                 </span>
-                <span className="bg-white text-dark px-2 py-1 rounded small fw-bold">
+                <span className="bg-white text-dark px-2 py-1 rounded mb-1 small fw-bold">
                   Apple Pay
                 </span>
               </div>
