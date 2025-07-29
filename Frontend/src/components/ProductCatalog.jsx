@@ -156,8 +156,8 @@ const ProductCatalog = () => {
                               variant="top"
                               src={
                                 hoveredProduct === product.id
-                                  ? `/public/uploads/${product.hoverImage}`
-                                  : `/public/uploads/${product.image}`
+                                  ? `${import.meta.env.VITE_API_URL}/uploads/${product.hoverImage}`
+                                  : `${import.meta.env.VITE_API_URL}/uploads/${product.image}`
                               }
                               style={{
                                 height: "100%",

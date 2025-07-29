@@ -538,7 +538,9 @@ const Admin = () => {
                     <tr key={laptop.id}>
                       <td className="align-middle">
                         <img
-                          src={`/public/uploads/${laptop.image}`}
+                          src={`${import.meta.env.VITE_API_URL}/uploads/${
+                            laptop.image
+                          }`}
                           alt={laptop.name}
                           style={{
                             width: "60px",

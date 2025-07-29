@@ -37,12 +37,18 @@ async function uploadToS3(file) {
 function saveToFrontendAssets(file) {
   const date = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
   const fileName = `${date}_${file.originalname}`;
-  const localPath = path.join(__dirname, '..', '..', 'Frontend', 'public', 'uploads', fileName);
+  const uploadDir = path.join(__dirname, '..', 'uploads');
 
+  // Ensure uploads folder exists
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+  }
+
+  const localPath = path.join(uploadDir, fileName);
   fs.writeFileSync(localPath, file.buffer);
 
-  // Path to be saved in the database (frontend-friendly)
-  return `${fileName}`;
+  // Return relative path (to be used with /uploads route)
+  return fileName;
 }
 
 // Add product
@@ -130,7 +136,8 @@ async function deleteFromS3(fileUrl) {
 
 // Helper to delete from local folder
 function deleteFromLocal(imagePath) {
-  const fullPath = path.join(__dirname, '..', '..', 'Frontend', 'public', 'uploads', imagePath);
+  const uploadDir = path.join(__dirname, '..', 'uploads');
+  const fullPath = path.join(uploadDir, fileName);
   fs.unlink(fullPath, (err) => {
     if (err && err.code !== 'ENOENT') {
       console.error(`Failed to delete local file ${fullPath}:`, err.message);
