@@ -240,6 +240,7 @@ const Admin = () => {
           prev.filter((laptop) => laptop.id !== selectedLaptopId)
         );
         showAlertMessage("Laptop deleted successfully!", "success");
+        setShowDeleteModal(false);
       } else {
         throw new Error("Failed to delete laptop");
       }
