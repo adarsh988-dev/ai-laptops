@@ -187,6 +187,7 @@ const Admin = () => {
         body: formDataToSend,
       });
 
+      console.log(response);
       setUploadProgress(90);
       if (response.ok) {
         const result = await response.json();
