@@ -137,7 +137,7 @@ async function deleteFromS3(fileUrl) {
 // Helper to delete from local folder
 function deleteFromLocal(imagePath) {
   const uploadDir = path.join(__dirname, '..', 'uploads');
-  const fullPath = path.join(uploadDir, fileName);
+  const fullPath = path.join(uploadDir, imagePath);
   fs.unlink(fullPath, (err) => {
     if (err && err.code !== 'ENOENT') {
       console.error(`Failed to delete local file ${fullPath}:`, err.message);
